@@ -13,5 +13,18 @@
 ## Example 3
 - Weather app using Futer + State Provider + Consumer
 
+## Example 4
+- StreamNotiferProvider
+
+## Example 5
+- Working with ChangeNotifier
+  - They are not aware what has changed, just that something has changed
+  - Call `notifyListeners()`
+  
+## Example 6
+- Working with StateNotifierProvider
+  - Holds a state object and allows for changing of the object
+  - Will notifer the listeners when the state changes
+
 
 
