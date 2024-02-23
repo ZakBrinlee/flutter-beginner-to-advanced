@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[800],
-        title: const Text('Weather App'),
+        title: const Text('Clone'),
       ),
     );
   }
