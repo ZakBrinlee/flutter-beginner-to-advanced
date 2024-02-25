@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:instantgram_clone_course/state/auth/backend/authenticator.dart';
 import 'firebase_options.dart';
+
+import 'dart:developer' as devtools show log;
+
+extension Log on Object {
+  void log() => devtools.log(toString());
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,11 +45,25 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var user = Authenticator().currentUser;
+    // if (user != null) {
+    //   user.log();
+    // }
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-        title: const Text('Clone'),
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: Colors.grey[800],
+          title: const Text('Clone'),
+        ),
+        body: Column(
+          children: [
+            TextButton(
+              onPressed: () async {
+                final result = await Authenticator().loginWithGoogle();
+                result.log();
+              },
+              child: const Text('Sign In'),
+            ),
+          ],
+        ));
   }
 }
