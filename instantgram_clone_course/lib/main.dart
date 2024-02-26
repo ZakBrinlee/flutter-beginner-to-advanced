@@ -59,7 +59,7 @@ class MainView extends StatelessWidget {
           title: const Text('Main View'),
         ),
         body: Consumer(
-          builder: (context, ref, child) {
+          builder: (_, ref, child) {
             return TextButton(
               onPressed: () async {
                 await ref.read(authStateProvider.notifier).logOut();
@@ -83,13 +83,22 @@ class LoginView extends ConsumerWidget {
         backgroundColor: Colors.grey[800],
         title: const Text('Login View'),
       ),
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
-            child: const Text('Sign In'),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
+        child: Column(
+          children: [
+            const Text(
+              'Welcome to Instant-Gram!',
+              style: TextStyle(
+                fontSize: 36,
+              ),
+            ),
+            TextButton(
+              onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
+              child: const Text('Sign In'),
+            ),
+          ],
+        ),
       ),
     );
   }
