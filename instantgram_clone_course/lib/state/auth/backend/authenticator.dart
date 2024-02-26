@@ -24,7 +24,6 @@ class Authenticator {
     final GoogleSignIn googleSignIn =
         GoogleSignIn(scopes: [Constants.emailScope]);
 
-    log('here is the google sign in object: $googleSignIn');
     var oauthCredentials;
     try {
       final signInAccount = await googleSignIn.signIn();
@@ -39,7 +38,7 @@ class Authenticator {
         idToken: googleAuth.idToken,
       );
     } on Exception catch (e) {
-      log('error: $e');
+      log('loginWithGoogle error: $e');
     }
 
     try {
