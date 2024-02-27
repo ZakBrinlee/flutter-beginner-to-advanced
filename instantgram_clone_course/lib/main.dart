@@ -3,6 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instantgram_clone_course/state/auth/models/auth_result.dart';
 import 'package:instantgram_clone_course/state/auth/providers/auth_state_provider.dart';
+import 'package:instantgram_clone_course/state/providers/is_loading_provider.dart';
+import 'package:instantgram_clone_course/views/components/loading/loading_screen.dart';
+import 'package:instantgram_clone_course/views/login/login_view.dart';
 import 'firebase_options.dart';
 
 import 'dart:developer' as devtools show log;
@@ -40,6 +43,20 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: Consumer(builder: (context, ref, child) {
+          // ref.listen() for actions that don't rebuild widgets
+          ref.listen<bool>(
+            isLoadingProvider,
+            (_, isLoading) {
+              if (isLoading) {
+                LoadingScreen.instance().show(
+                  context: context,
+                );
+              } else {
+                LoadingScreen.instance().hide();
+              }
+            },
+          );
+          // ref.watch() for rebuilding widgets based on new value changes
           final isLoggedIn =
               ref.watch(authStateProvider).result == AuthResult.success;
           return isLoggedIn ? const MainView() : const LoginView();
@@ -68,38 +85,5 @@ class MainView extends StatelessWidget {
             );
           },
         ));
-  }
-}
-
-class LoginView extends ConsumerWidget {
-  const LoginView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-        title: const Text('Login View'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 32, 16, 32),
-        child: Column(
-          children: [
-            const Text(
-              'Welcome to Instant-Gram!',
-              style: TextStyle(
-                fontSize: 36,
-              ),
-            ),
-            TextButton(
-              onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
-              child: const Text('Sign In'),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
