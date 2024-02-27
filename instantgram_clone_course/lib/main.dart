@@ -71,19 +71,20 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.grey[800],
-          title: const Text('Main View'),
-        ),
-        body: Consumer(
-          builder: (_, ref, child) {
-            return TextButton(
-              onPressed: () async {
-                await ref.read(authStateProvider.notifier).logOut();
-              },
-              child: const Text('Sign Out'),
-            );
-          },
-        ));
+      appBar: AppBar(
+        backgroundColor: Colors.grey[800],
+        title: const Text('Main View'),
+      ),
+      body: Consumer(
+        builder: (_, ref, child) {
+          return TextButton(
+            onPressed: () async {
+              await ref.read(authStateProvider.notifier).logOut();
+            },
+            child: const Text('Sign Out'),
+          );
+        },
+      ),
+    );
   }
 }
