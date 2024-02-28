@@ -24,7 +24,6 @@ class Authenticator {
     final GoogleSignIn googleSignIn =
         GoogleSignIn(scopes: [Constants.emailScope]);
 
-    var oauthCredentials;
     try {
       final signInAccount = await googleSignIn.signIn();
 
@@ -33,18 +32,15 @@ class Authenticator {
       }
 
       final googleAuth = await signInAccount.authentication;
-      oauthCredentials = GoogleAuthProvider.credential(
+      final oauthCredentials = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
-    } on Exception catch (e) {
-      log('loginWithGoogle error: $e');
-    }
 
-    try {
       await FirebaseAuth.instance.signInWithCredential(oauthCredentials);
       return AuthResult.success;
-    } catch (e) {
+    } on Exception catch (e) {
+      log('loginWithGoogle error: $e');
       return AuthResult.failure;
     }
   }

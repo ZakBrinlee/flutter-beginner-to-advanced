@@ -6,6 +6,7 @@ import 'package:instantgram_clone_course/state/auth/providers/auth_state_provide
 import 'package:instantgram_clone_course/state/providers/is_loading_provider.dart';
 import 'package:instantgram_clone_course/views/components/loading/loading_screen.dart';
 import 'package:instantgram_clone_course/views/login/login_view.dart';
+import 'package:instantgram_clone_course/views/main/main_view.dart';
 import 'firebase_options.dart';
 
 import 'dart:developer' as devtools show log;
@@ -61,30 +62,5 @@ class MyApp extends StatelessWidget {
               ref.watch(authStateProvider).result == AuthResult.success;
           return isLoggedIn ? const MainView() : const LoginView();
         }));
-  }
-}
-
-// For when the user is logged in
-class MainView extends StatelessWidget {
-  const MainView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[800],
-        title: const Text('Main View'),
-      ),
-      body: Consumer(
-        builder: (_, ref, child) {
-          return TextButton(
-            onPressed: () async {
-              await ref.read(authStateProvider.notifier).logOut();
-            },
-            child: const Text('Sign Out'),
-          );
-        },
-      ),
-    );
   }
 }
