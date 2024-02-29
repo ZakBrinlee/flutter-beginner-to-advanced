@@ -21,5 +21,12 @@
   - Holds a state object and allows for changing of the object
   - Will notifer the listeners when the state changes
 
+### Instant-Gram -> InstaGram Clone
+- Google Login
+  - Not including the Facebook Login capability
+- Firebase
+  - Firestore
+  - Storage
+  - Authentication
 
 

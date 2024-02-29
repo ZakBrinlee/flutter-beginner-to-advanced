@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "187490305574",
+    "project_id": "instantgram-clone-course-zak",
+    "storage_bucket": "instantgram-clone-course-zak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187490305574:android:ee54a27b351386be37c8e7",
+        "android_client_info": {
+          "package_name": "com.example.instantgram_clone_course"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187490305574-ejjn1rdqd2jjquvleqijc189j0g7kkl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1mQH9LBB5cQ2dWWeniMrQcD0-zbUXQCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187490305574-ejjn1rdqd2jjquvleqijc189j0g7kkl2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "187490305574-nuvrp3nskidf1p2q9b91ecv1mmp85lf2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.instantgramCloneCourse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

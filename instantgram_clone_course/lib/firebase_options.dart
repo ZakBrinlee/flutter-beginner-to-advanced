@@ -24,10 +24,7 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
@@ -59,5 +56,13 @@ class DefaultFirebaseOptions {
     projectId: 'instantgram-clone-course-zak',
     storageBucket: 'instantgram-clone-course-zak.appspot.com',
     iosBundleId: 'com.example.instantgramCloneCourse',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyD1mQH9LBB5cQ2dWWeniMrQcD0-zbUXQCc',
+    appId: '1:187490305574:android:ee54a27b351386be37c8e7',
+    messagingSenderId: '187490305574',
+    projectId: 'instantgram-clone-course-zak',
+    storageBucket: 'instantgram-clone-course-zak.appspot.com',
   );
 }

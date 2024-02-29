@@ -73,7 +73,6 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentWeather = ref.watch(weatherProvider);
-    final currentCity = ref.watch(currentCityProvider);
     // Every time date changes, the widget will rebuild
     return Scaffold(
       appBar: AppBar(
