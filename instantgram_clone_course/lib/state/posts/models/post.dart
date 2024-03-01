@@ -12,7 +12,7 @@ class Post {
   final DateTime createdAt;
   final String thumbnailUrl;
   final String fileUrl;
-  final String fileType;
+  final FileType fileType;
   final String fileName;
   final double aspectRatio;
   final String thumbnailStorageId;
@@ -30,7 +30,7 @@ class Post {
         fileType = FileType.values.firstWhere(
           (fileType) => fileType.name == json[PostKey.fileType],
           orElse: () => FileType.image,
-        ) as String,
+        ),
         fileName = json[PostKey.fileName],
         aspectRatio = json[PostKey.aspectRatio],
         thumbnailStorageId = json[PostKey.thumbnailStorageId],
