@@ -18,3 +18,8 @@
   - Instead, use the server's date and time.
   - `FieldValue.serverTimestamp()`
   - [Related article](https://medium.com/firebase-developers/the-secrets-of-firestore-fieldvalue-servertimestamp-revealed-29dd7a38a82b)
+
+- `Uint8List` is a list of 8-bit unsigned integers. 
+  - It was used in the image upload logic
+  - Need to look into it to understand it better
+  - [Related article](https://api.flutter.dev/flutter/dart-typed_data/Uint8List-class.html)
