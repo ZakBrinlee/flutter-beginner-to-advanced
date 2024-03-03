@@ -11,6 +11,8 @@ import 'package:instantgram_clone_course/views/components/dialogs/alert_dialog_m
 import 'package:instantgram_clone_course/views/components/dialogs/logout_dialog.dart';
 import 'package:instantgram_clone_course/views/constants/strings.dart';
 import 'package:instantgram_clone_course/views/create_new_post/create_new_post_view.dart';
+import 'package:instantgram_clone_course/views/tabs/home/home_view.dart';
+import 'package:instantgram_clone_course/views/tabs/search_view/search_view.dart';
 import 'package:instantgram_clone_course/views/tabs/user_posts/user_posts_view.dart';
 
 class MainView extends ConsumerStatefulWidget {
@@ -122,8 +124,8 @@ class _MainViewState extends ConsumerState<MainView> {
         ),
         body: const TabBarView(children: [
           UserPostsView(),
-          UserPostsView(),
-          UserPostsView(),
+          SearchView(),
+          HomeView(),
         ]),
       ),
     );
