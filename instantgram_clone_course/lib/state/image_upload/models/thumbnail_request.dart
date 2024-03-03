@@ -22,7 +22,6 @@ class ThumbnailRequest {
           fileType == other.fileType;
 
   @override
-  // TODO: implement hashCode
   int get hashCode => Object.hashAll(
         [
           runtimeType,

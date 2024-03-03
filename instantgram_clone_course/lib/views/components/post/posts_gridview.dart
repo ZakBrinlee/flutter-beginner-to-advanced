@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instantgram_clone_course/state/posts/models/post.dart';
 import 'package:instantgram_clone_course/views/components/post/post_thumbnail_view.dart';
-import 'package:instantgram_clone_course/views/post_comments/post_comments_view.dart';
+import 'package:instantgram_clone_course/views/post_details/post_details_view.dart';
 
 class PostsGridView extends StatelessWidget {
   final Iterable<Post> posts;
@@ -29,9 +29,7 @@ class PostsGridView extends StatelessWidget {
               // Todo: Navigate to the post detail page
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) => PostCommentsView(
-                    postId: post.postId,
-                  ),
+                  builder: (_) => PostDetailsView(post: post),
                 ),
               );
             },
